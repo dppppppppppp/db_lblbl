@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/index.css" type="text/css" charset="utf-8">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/request.js"></script>
+    <title>My site 69</title>
+</head>
+<body>
+
+    <header class="top-nav">
+        <img class="big-logo" src="img/logo.png" alt="Neuro notes">
+        <div class="find-members-wrapper"> 
+            <div class="find-input">
+            <input type="text" id="find_item" value="" placeholder="Поиск">
+            <button id="sc_button" class="header-button" onClick="do_search()">
+                <img class="min-icon" src="img/search.png" alt="search">
+            </button>
+            </div>
+            <button id="lk_button" class="header-button" onClick="open_lk()">
+                <img class="min-icon" src="img/account.png" alt="Me">
+            </button>
+
+        </div>
+    </header>
+    <div class="lk-bg-wrapper">
+        <div class="lk-wrapper">
+            <div class="lk-header">
+                <button id="arrow_button" onClick="close_lk()">
+                <div class="arrow"></div>
+                </button>
+            </div>
+            <div class="lk-content">
+                <!--
+
+ id           | integer                |  | not null | generated always as identity
+ full_name    | character varying(100) |  | not null |
+ phone_number | character varying(12)  |  | not null |
+ adress       | text                   |  | not null |
+ bonus_lvl    | integer                |  |          | 0
+
+                -->
+                <p class="big-text">
+                    Ваши данные: 
+                </p>
+                <br>
+                <div class="user-info">
+                    <div class="input-container">
+                        <input type="text" placeholder=" " id="full_name" value="Шинель Акакий Акакьевич">
+                        <p>ФИО</p>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="phone_number" placeholder=" " value="88005553535"/>
+                        <p>Телефон</p>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="adress" placeholder=" " value="Омск"/>
+                        <p>Адресс</p>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="my_box" placeholder=" " readonly/>
+                        <p>Текущая корзина</p>
+                    </div>
+                    <button onClick="buy()"> купить </button>
+                    <button onClick="save_pdf()"> получить документ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main-container">
+        <div class="left-panel">
+            Фильтры:
+            <div class="checkbox-wrapper" id=filters>
+                Сортировать по:
+                <div>
+                    <input type="checkbox" name="cost" id="cost" />
+                    <label for="price">цене</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="efficiency" id="efficiency"/>
+                    <label for="time">производительности</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="energy_consumption" id="energy_consumption"/>
+                    <label for="weight">потреблению энергии</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="warranty_period" id="warranty_period"/>
+                    <label for="date">гарантийному сроку</label>
+                </div>
+                <!--<input type="button" id="do_filter" value="применить" onClick="do_filters()"> -->
+            </div>
+        </div>
+        <div class="search-result-wrapper" id="search_result">
+        </div>
+
+    </main>
+</body>
+<script>
+  window.onload = function() { // можно также использовать window.addEventListener('load', (event) => {
+    init();
+
+  };
+</script>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/f_index.css" type="text/css" charset="utf-8">
+    <link rel="shortcut icon" href="img/f_icon.png" type="image/x-icon">
+    <script type="text/javascript" src="js/f_main.js"></script>
+    <script type="text/javascript" src="js/f_request.js"></script>
+    <script type="text/javascript" src="js/f_my_file_with_only_one_function.js"></script>
+    <title>GigaMove</title>
+</head>
+<body>
+
+    <header class="top-nav">
+        <img class="big-logo" src="img/f_logo.png" alt="Neuro notes">
+        <div class="find_members_wrapper"> 
+            <div class="fing_input">
+            	<input type="text" id="find_item_1" value="" placeholder="Введите id заказа">
+	    	<button id="lk_button" onclick="generateTable('find_item_1', 'search_result')">
+	    		<img class="min-icon" id="search-icon" src="img/f_search.png" alt="search">
+	    	</button>
+            </div>
+
+            <div class="fing_input">
+            	<input type="text" id="find_item_2" value="" placeholder="Введите ФИО заказчика">
+	    	<button id="lk_button" onclick="generateTable('find_item_2', 'search_result')">
+	    		<img class="min-icon" id="search-icon" src="img/f_search.png" alt="search">
+	    	</button>
+            </div>
+
+            <div class="fing_input">
+            	<input type="text" id="find_item_3" value="" placeholder="Введите ФИО работника доставки">
+	    	<button id="lk_button" onclick="generateTable('find_item_3', 'search_result')">
+	    		<img class="min-icon" id="search-icon" src="img/f_search.png" alt="search">
+	    	</button>
+            </div>
+	    <button id="lk_button" onclick="alert('В чём смысл жизни?')">
+            	<img class="min-icon" src="img/f_account.png" alt="Me">
+            </button>
+        </div>
+    </header>
+    <main class="main-container">
+	<div id="search_result" class="search-result-wrapper"></div>
+    <!-- Кнопка для формирования PDF -->
+    </main>
+    <div class="pdf-button-container" style="display: none;" id="pdfButtonContainer">
+        <button id="generate_pdf" class="generate-pdf-button">Формирование акта приёма-передачи</button>
+    </div>
+    <script>
+    window.onload = function() { // можно также использовать window.addEventListener('load', (event) => {
+	preGenerateTable('search_result');
+    };
+    </script>
+</body>
+<script>
+function do_filters() {
+    let box = document.querySelector("#filters");
+    let options = box.querySelectorAll("input[type=checkbox]");
+    let sort_keys = [];
+    options.forEach((el) => {
+        if (el.checked) {
+            sort_keys.push(el.id)
+        }     
+    });
+    //sort_keys.sort();
+    console.log(sort_keys);
+}
+
+</script>
+</html>

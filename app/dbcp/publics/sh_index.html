@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/sh_index.css" type="text/css" charset="utf-8">
+    <link rel="shortcut icon" href="img/sh_icon.png" type="image/x-icon">
+    <script type="text/javascript" src="js/sh_main.js"></script>
+    <script type="text/javascript" src="js/sh_request.js"></script>
+    <script type="text/javascript" src="js/sh_my_file_with_only_one_function.js"></script>
+    <title>GlobalStep</title>
+</head>
+<body>
+
+    <header class="top-nav">
+        <img class="big-logo" src="img/sh_logo.png" alt="Neuro notes">
+        <div class="find_members_wrapper"> 
+            <div class="fing_input">
+            	<input type="text" id="find_item_1" value="" placeholder="Введите id работника склада">
+	    	<button id="lk_button" onclick="generateTable('find_item_1', 'search_result')">
+	    		<img class="min-icon" id="search-icon" src="img/sh_search.png" alt="search">
+	    	</button>
+            </div>
+
+            <div class="fing_input">
+            	<input type="text" id="find_item_2" value="" placeholder="Введите id заказа">
+	    	<button id="lk_button" onclick="generateTable('find_item_2', 'search_result')">
+	    		<img class="min-icon" id="search-icon" src="img/sh_search.png" alt="search">
+	    	</button>
+            </div>
+
+            <div class="fing_input">
+            	<input type="text" id="find_item_3" value="" placeholder="Введите поступившие/отправленные">
+	    	<button id="lk_button" onclick="generateTable('find_item_3', 'search_result')">
+	    		<img class="min-icon" id="search-icon" src="img/sh_search.png" alt="search">
+	    	</button>
+            </div>
+	    <button id="lk_button" onclick="alert('Желаю тебе из тысячи звезд одну самую яркую!')">
+            	<img class="min-icon" src="img/sh_account.png" alt="Me">
+            </button>
+        </div>
+    </header>
+    <main class="main-container">
+	<div id="search_result" class="search-result-wrapper"></div>
+    </main>
+</body>
+<script>
+function do_filters() {
+    let box = document.querySelector("#filters");
+    let options = box.querySelectorAll("input[type=checkbox]");
+    let sort_keys = [];
+    options.forEach((el) => {
+        if (el.checked) {
+            sort_keys.push(el.id)
+        }     
+    });
+    //sort_keys.sort();
+    console.log(sort_keys);
+}
+
+</script>
+</html>
+

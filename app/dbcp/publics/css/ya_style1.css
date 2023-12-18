@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+}
+.container {
+    text-align: left;
+}
+.first-line {
+    text-indent: 2em;
+    font-size: larger;
+}
+.first-line2 {
+    text-indent: 2em;
+    font-size: larger;
+    text-decoration: underline;
+}
+.percentage-value {
+    text-decoration: underline;
+    font-size: larger;
+}
+.print-location {
+    text-align: right;
+}

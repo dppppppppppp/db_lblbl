@@ -1,0 +1,28 @@
+version: "3.2"
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "lab_db_egor"
+      POSTGRES_USER: "egor"
+      POSTGRES_PASSWORD: "admin"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./10000000000-schema.sql:/docker-entrypoint-initdb.d/10000000000-schema.sql
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+  app:
+    build:
+      app/dbcp/
+    command:
+      ./a.out
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    networks:
+      - default
